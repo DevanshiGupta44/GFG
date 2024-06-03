@@ -6,17 +6,26 @@ using namespace std;
 
 
 // } Driver Code Ends
-
 // User function template for C++
 
 class Solution {
   public:
     int binarysearch(int arr[], int n, int k) {
         // code here
-        for(int i=0;i<n;i++){
-            if(arr[i] == k){
-                return i;
+        int s=0;
+        int e=n-1;
+        int mid=s+(e-s/2);
+        while(s<=e){
+            if(arr[mid]==k){
+                return mid;
             }
+            if(arr[mid]<k){
+                s=mid+1;
+            }
+            else{
+                e=mid-1;
+            }
+            mid=s+(e-s/2);
         }
         return -1;
     }
