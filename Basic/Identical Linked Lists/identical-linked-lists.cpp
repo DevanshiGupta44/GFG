@@ -65,37 +65,41 @@ struct Node {
 */
 
 //Function to check whether two linked lists are identical or not. 
-bool areIdentical(struct Node *head1, struct Node *head2)
+// bool areIdentical(struct Node *head1, struct Node *head2)
+// {
+//     // Code here
+//     while(head1!=NULL && head2!=NULL){
+//         if(head1->data == head2->data){
+//             head1=head1->next;
+//             head2=head2->next;
+//         }
+//         else{
+//             return 0;
+//         }
+//     }
+//     if(head1==NULL && head2==NULL){
+//         return 1;
+//     }
+//     return 0;
+// }
+bool areIdentical(Node* head1, Node* head2)
 {
-    // Code here
-    // Node *temp1 = head1;
-    // Node *temp2 = head2;
-    // while(temp1!=NULL && temp2!=NULL){
-    //     if(temp1->data != temp1->data){
-    //         return false;
-    //     }
-    //     temp1=temp1->next;
-    //     temp2=temp2->next;
-    // }
-    // if(temp1!=NULL || temp2!=NULL){
-    //     return false;
-    // }
-    // else{
-    //     return true;
-    // }
-    //code
-    Node *temp=head1;
-    Node *temp1=head2;
-    while(temp!=NULL && temp1!=NULL){
-        if(temp->data !=temp1->data){
-            return false;
+    // Traverse both lists
+    while (head1 != NULL && head2 != NULL) {
+        // Compare data of current nodes
+        if (head1->data == head2->data) {
+            head1 = head1->next; // Move to next node in list1
+            head2 = head2->next; // Move to next node in list2
+        } else {
+            return false; // Nodes are not identical
         }
-        temp=temp->next;
-        temp1=temp1->next;
     }
-    if(temp!=NULL || temp1!=NULL){
-        return false;
+    
+    // If both lists are traversed completely and have same length
+    if (head1 == NULL && head2 == NULL) {
+        return true;
     }
-    else
-    return true;
+    
+    // If one list has remaining nodes
+    return false;
 }
