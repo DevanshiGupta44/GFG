@@ -105,25 +105,23 @@ public:
     {
         // Your code here
         Node* temp = head;
-std::vector<int> arr;
-while (temp != nullptr) {
-    arr.push_back(temp->data);
-    temp = temp->next;
-}
-std::sort(arr.begin(), arr.end());
-arr.erase(std::unique(arr.begin(), arr.end()), arr.end());
+        std::vector<int> arr;
+        while (temp != nullptr) {
+            arr.push_back(temp->data);
+            temp = temp->next;
+        }
+        std::sort(arr.begin(), arr.end());
+        arr.erase(std::unique(arr.begin(), arr.end()), arr.end());
 
-Node* nhead = new Node(arr[0]);
-Node* prev = nhead;
-for (int i = 1; i < arr.size(); i++) {
-    Node* newNode = new Node(arr[i]);
-    prev->next = newNode;
-    newNode->prev = prev;
-    prev = newNode;
-}
-return nhead;
-
-        
+        Node* nhead = new Node(arr[0]);
+        Node* prev = nhead;
+        for (int i = 1; i < arr.size(); i++) {
+            Node* newNode = new Node(arr[i]);
+            prev->next = newNode;
+            newNode->prev = prev;
+            prev = newNode;
+        }
+        return nhead;
     }
 };
 
