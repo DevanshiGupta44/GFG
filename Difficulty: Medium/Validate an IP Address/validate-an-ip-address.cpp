@@ -4,6 +4,7 @@ using namespace std;
 
 
 // } Driver Code Ends
+// User function Template for C++
 /* The function returns 1 if
 IP string is valid else return 0
 You are required to complete this method */
@@ -85,8 +86,16 @@ int main() {
     while (t--) {
         string s;
         cin >> s;
+        // if (s.size() == 3) {
+        //     cout << "false" << endl;
+        //     return 0;
+        // }
         Solution ob;
-        cout << ob.isValid(s) << endl;
+        bool f = ob.isValid(s);
+        if (f)
+            cout << "true" << endl;
+        else
+            cout << "false" << endl;
     }
     return 0;
 }
